@@ -28,5 +28,39 @@ class SpellModel extends SpellEntity {
           sourse: sourse,
           description: description,
         );
-  
+
+  factory SpellModel.fromJson(Map<String, dynamic> json) {
+    return SpellModel(
+      id: json['id'],
+      level: json['level'],
+      title: json['title'],
+      school: json['school'],
+      castingTime: json['castingTime'],
+      ritual: (json['ritual'] as int) == 1 ? true : false,
+      rangeArea: json['rangeArea'],
+      components: json['components'],
+      duration: json['duration'],
+      classes:
+          (json['classes'] as List<dynamic>).map((e) => e as String).toList(),
+      sourse: json['sourse'],
+      description: json['description'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'level': level,
+      'title': title,
+      'school': school,
+      'castingTime': castingTime,
+      'ritual': ritual,
+      'rangeArea': rangeArea,
+      'components': components,
+      'duration': duration,
+      'classes': classes,
+      'sourse': sourse,
+      'description': description,
+    };
+  }
 }

@@ -6,7 +6,7 @@ class SpellEntity extends Equatable {
   final String title;
   final String school;
   final String castingTime;
-  final int ritual;
+  final bool ritual;
   final String rangeArea;
   final String components;
   final String duration;
