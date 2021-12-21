@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:spellbook/feature/domain/entities/spell_entity.dart';
+import 'package:spellbook/feature/data/model/spell_model.dart';
 
 abstract class SpellListState extends Equatable {
   const SpellListState();
@@ -8,22 +8,21 @@ abstract class SpellListState extends Equatable {
   List<Object?> get props => [];
 }
 
+// NOTE: Состояние пока не получены заклинания
 class SpellListEmptyState extends SpellListState {
   @override
   List<Object?> get props => [];
 }
 
+// NOTE: Состояние пока получаем заклинания
 class SpellListLoadingState extends SpellListState {
-  final List<List<SpellEntity>> actualSpellList;
-
-  const SpellListLoadingState({required this.actualSpellList});
-
   @override
-  List<Object?> get props => [actualSpellList];
+  List<Object?> get props => [];
 }
 
+// NOTE: Состояние когда заклинания загружены
 class SpellListLoadedState extends SpellListState {
-  final List<List<SpellEntity>> loadedSpellList;
+  final AllSpellsModel loadedSpellList;
 
   const SpellListLoadedState({required this.loadedSpellList});
 
@@ -31,6 +30,7 @@ class SpellListLoadedState extends SpellListState {
   List<Object?> get props => [loadedSpellList];
 }
 
+// NOTE: Cостояние при ошибке
 class SpellListErrorState extends SpellListState {
   final String message;
 

@@ -1,8 +1,13 @@
+import 'package:spellbook/constants/constants.dart';
 import 'package:spellbook/feature/domain/entities/spell_entity.dart';
+
+class AllSpellsModel {
+  final List<SpellModel> spells;
+  AllSpellsModel({required this.spells});
+}
 
 class SpellModel extends SpellEntity {
   const SpellModel({
-    required id,
     required level,
     required title,
     required school,
@@ -12,10 +17,9 @@ class SpellModel extends SpellEntity {
     required components,
     required duration,
     required classes,
-    required sourse,
+    required source,
     required description,
   }) : super(
-          id: id,
           level: level,
           title: title,
           school: school,
@@ -25,42 +29,11 @@ class SpellModel extends SpellEntity {
           components: components,
           duration: duration,
           classes: classes,
-          sourse: sourse,
+          source: source,
           description: description,
         );
 
-  factory SpellModel.fromJson(Map<String, dynamic> json) {
-    return SpellModel(
-      id: json['id'],
-      level: json['level'],
-      title: json['title'],
-      school: json['school'],
-      castingTime: json['castingTime'],
-      ritual: (json['ritual'] as int) == 1 ? true : false,
-      rangeArea: json['rangeArea'],
-      components: json['components'],
-      duration: json['duration'],
-      classes:
-          (json['classes'] as List<dynamic>).map((e) => e as String).toList(),
-      sourse: json['sourse'],
-      description: json['description'],
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'level': level,
-      'title': title,
-      'school': school,
-      'castingTime': castingTime,
-      'ritual': ritual,
-      'rangeArea': rangeArea,
-      'components': components,
-      'duration': duration,
-      'classes': classes,
-      'sourse': sourse,
-      'description': description,
-    };
+  String getImage() {
+    return Constants.imagePath + school + Constants.imageFormat;
   }
 }

@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 
 class SpellEntity extends Equatable {
-  final int id;
   final int level;
   final String title;
   final String school;
@@ -11,11 +10,10 @@ class SpellEntity extends Equatable {
   final String components;
   final String duration;
   final List<String> classes;
-  final String sourse;
+  final String source;
   final String description;
 
   const SpellEntity({
-    required this.id,
     required this.level,
     required this.title,
     required this.school,
@@ -25,13 +23,12 @@ class SpellEntity extends Equatable {
     required this.components,
     required this.duration,
     required this.classes,
-    required this.sourse,
+    required this.source,
     required this.description,
   });
 
   @override
   List<Object?> get props => [
-        id,
         level,
         title,
         school,
@@ -41,7 +38,7 @@ class SpellEntity extends Equatable {
         components,
         duration,
         classes,
-        sourse,
+        source,
         description
       ];
 }

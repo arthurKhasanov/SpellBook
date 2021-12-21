@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
         title: const Text('Заклинания'),
         centerTitle: true,
       ),
-      body: SafeArea(child: Expanded(child: SpellList())),
+      body: const SpellList(),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:spellbook/feature/data/datasorses/spells_from_file_datasourse.dart';
+import 'package:spellbook/feature/data/datasourses/spells_from_file_datasourse.dart';
 import 'package:spellbook/feature/data/repositories/spell_repository_impl.dart';
 import 'package:spellbook/feature/domain/repositories/spell_repository.dart';
 import 'package:spellbook/feature/domain/usecases/get_all_spells.dart';
@@ -7,7 +7,7 @@ import 'package:spellbook/feature/presentation/bloc/spell_list_cubit.dart/spell_
 
 final sl = GetIt.instance;
 
-Future<void> init() async {
+init() {
   //Cubit
   sl.registerFactory(() => SpellListCubit(getAllSpells: sl()));
 
@@ -18,6 +18,6 @@ Future<void> init() async {
   sl.registerLazySingleton<SpellRepository>(
       () => SpellRepositoryImpl(spellsFromFileDataSourse: sl()));
 
-  sl.registerLazySingleton<SpellsFromFileDataSourse>(
-      () => SpellsFromFileDataSourseImpl());
+  sl.registerLazySingleton<SpellsDataSourse>(
+      () => SpellsDataSourseImpl());
 }

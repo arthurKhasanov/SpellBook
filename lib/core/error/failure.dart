@@ -6,6 +6,6 @@ abstract class Failure extends Equatable {
 }
 
 
-class ReadFileFailure extends Failure{}
+class GetSpellsFailure extends Failure{}
 
 class CacheFailure extends Failure{}
