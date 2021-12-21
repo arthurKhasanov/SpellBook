@@ -22,7 +22,14 @@ class MyApp extends StatelessWidget {
           BlocProvider<SpellListCubit>(
               create: (context) => sl<SpellListCubit>()..loadSpells())
         ],
-        child: const MaterialApp(
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+              fontFamily: 'Montserrat',
+              backgroundColor: Colors.white,
+              appBarTheme: AppBarTheme(
+                backgroundColor: Colors.white,
+              )),
           home: SafeArea(child: HomePage()),
         ));
   }

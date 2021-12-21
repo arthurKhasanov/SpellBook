@@ -23,39 +23,37 @@ class SpellList extends StatelessWidget {
       } else if (state is SpellListLoadedState) {
         spells = state.loadedSpellList;
       }
-      return Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text(
-              'Список 1',
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Text(
+              'Заговоры',
               style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 28,
-                  fontFamily: 'Montserrat',
-                  // fontWeight: FontWeight.w700,
-                  ),
+                color: Colors.black,
+                fontSize: 20,
+                fontFamily: 'Montserrat',
+                // fontWeight: FontWeight.bold,
+              ),
             ),
-            const SizedBox(
-              height: 8,
-            ),
-            Container(
-              height: 250,
-              child: ListView.separated(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return SpellCard(spell: spells.spells[index]);
-                  },
-                  separatorBuilder: (context, index) => const SizedBox(
-                        width: 8,
-                      ),
-                  itemCount: spells.spells.length),
-            ),
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 250,
+            child: ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 12),
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return SpellCard(spell: spells.spells[index]);
+                },
+                separatorBuilder: (context, index) => const SizedBox(
+                      width: 8,
+                    ),
+                itemCount: spells.spells.length),
+          ),
+        ],
       );
     });
   }

@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Заклинания'),
+        title: const Text('Заклинания', style: TextStyle(color: Colors.black)),
         centerTitle: true,
       ),
       body: const SpellList(),
