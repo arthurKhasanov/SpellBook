@@ -13,7 +13,6 @@ class SpellDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    ScrollController scrollController = ScrollController();
     return Scaffold(
       body: Stack(
         children: [
@@ -52,59 +51,4 @@ class SpellDetailScreen extends StatelessWidget {
     );
   }
 }
-
-/*
-DraggableScrollableSheet(
-            initialChildSize: 0.6,
-            minChildSize: 0.6,
-            maxChildSize: 0.85,
-            builder:
-                (BuildContext context, ScrollController scrollController) {
-                  return SingleChildScrollView(
-                  controller: scrollController,
-                  child: Container(
-                    width: size.width,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(25),
-                          topRight: Radius.circular(25)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SpellDescTitle(spell: spell),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            SpellDescRow(
-                                rowName: CardDescConstans.castingTime,
-                                rowDesc: spell.castingTime),
-                            SpellDescRow(
-                                rowName: CardDescConstans.rangeArea,
-                                rowDesc: spell.rangeArea),
-                            SpellDescRow(
-                                rowName: CardDescConstans.components,
-                                rowDesc: spell.components),
-                            SpellDescRow(
-                                rowName: CardDescConstans.duration,
-                                rowDesc: spell.duration),
-                            SpellDescRow(
-                                rowName: CardDescConstans.classes,
-                                rowDesc: spell.classes.toString()),
-                            SpellDescRow(
-                                rowName: CardDescConstans.source,
-                                rowDesc: spell.source),
-                            const SizedBox(height: 10),
-                             Text(spell.description),
-                          ]),
-                    ),
-                  ));
-
-                }
-          ),
-*/
-
 
