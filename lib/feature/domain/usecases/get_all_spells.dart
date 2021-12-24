@@ -8,7 +8,32 @@ class GetAllSpells {
 
   GetAllSpells({required this.spellRepository});
 
-  Either<Failure, AllSpellsModel> getSpells() {
-    return spellRepository.getAllSpells();
+  AllSpellsModel getSpells() {
+    var spells = spellRepository.getAllSpells();
+
+    for (var spell in spells.allSpells) {
+      if (spell.level == 0) {
+        spells.cantrips.add(spell);
+      } else if (spell.level == 1) {
+        spells.firstLevel.add(spell);
+      } else if (spell.level == 2) {
+        spells.secondLevel.add(spell);
+      } else if (spell.level == 3) {
+        spells.thirdLevel.add(spell);
+      } else if (spell.level == 4) {
+        spells.fourthLevel.add(spell);
+      } else if (spell.level == 5) {
+        spells.fifthLevel.add(spell);
+      } else if (spell.level == 6) {
+        spells.sixthLevel.add(spell);
+      } else if (spell.level == 7) {
+        spells.seventhLevel.add(spell);
+      } else if (spell.level == 8) {
+        spells.eighthLevel.add(spell);
+      } else if (spell.level == 9) {
+        spells.ninthLevel.add(spell);
+      }
+    }
+    return spells;
   }
 }

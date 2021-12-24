@@ -12,69 +12,17 @@ class SpellListCubit extends Cubit<SpellListState> {
 
   Future<void> loadSpells() async {
     final failureOrSpells = getAllSpells.getSpells();
-    AllSpellsModel actualSpells;
+    AllSpellsModel? actualSpells;
 
-    failureOrSpells.fold((error) {
-      emit(SpellListErrorState(message: _mapErrorToMessage(error)));
-    }, (spells) {
-      actualSpells = spells;
+    if (actualSpells != null) {
+      emit(SpellListLoadingState());
+    }
+
+    if (failureOrSpells != null) {
+      actualSpells = failureOrSpells;
       emit(SpellListLoadedState(loadedSpellList: actualSpells));
-    });
-  }
-
-  String _mapErrorToMessage(Failure failure) {
-    switch (failure.runtimeType) {
-      case GetSpellsFailure:
-        return readFileFailure;
-      default:
-        return 'unidentified error';
+    } else {
+      emit(SpellListErrorState(message: 'Spell == null'));
     }
   }
 }
-
-
-// class SpellListCubit extends Cubit<SpellListState> {
-//   final GetAllSpells getAllSpells;
-//   SpellListCubit({required this.getAllSpells}) : super(SpellListEmptyState());
-
-//   Future<void> loadSpells() async {
-//     print('запустился loadSpell в Cubit');
-//     if (state is SpellListLoadingState) {
-//       print('идет проверка на Loading State');
-//       return;
-//     }
-//     print('прошла проверка на Loading State удачно');
-//     final currentState = state;
-
-//     late AllSpellsModel spells;
-//     if (currentState is SpellListLoadedState) {
-//       spells = currentState.loadedSpellList;
-//       print('Прошла проверка на Loaded State, в спеллс загружены заклинания');
-//     }
-
-//     print('емит ЛоадингСтейта');
-//     emit(SpellListLoadingState(loadingSpells: spells));
-
-//     final failureOrSpells = await getAllSpells.getSpells();
-
-//     failureOrSpells.fold((error) {
-//       emit(SpellListErrorState(message: _mapErrorToMessage(error)));
-//       print('емит ЭррорСтейт');
-//     }, (spell) {
-//       print('failureOrSpells запущен');
-//       final spells = (state as SpellListLoadedState).loadedSpellList;
-//       print('емит ЛоадедСтейта');
-//       print('List length: ${spells.cantrip!.length.toString()}');
-//       emit(SpellListLoadedState(loadedSpellList: spells));
-//     });
-//   }
-
-//   String _mapErrorToMessage(Failure failure) {
-//     switch (failure.runtimeType) {
-//       case ReadFileFailure:
-//         return readFileFailure;
-//       default:
-//         return 'unidentified error';
-//     }
-//   }
-// }

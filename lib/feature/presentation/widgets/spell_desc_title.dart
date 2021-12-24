@@ -3,46 +3,41 @@ import 'package:spellbook/feature/data/model/spell_model.dart';
 
 class SpellDescTitle extends StatelessWidget {
   final SpellModel spell;
-  final Color color;
-  const SpellDescTitle({Key? key, required this.spell, required this.color}) : super(key: key);
+  const SpellDescTitle({Key? key, required this.spell}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Text(
-              spell.school,
-              style: TextStyle(
-                color: color,
-                fontSize: 12,
-              ),
-            ),
-            Text(
-              spell.level == 0 ? ', Заговор' : ', ${spell.level} уровень',
-              style: TextStyle(
-                color: color,
-                fontSize: 12,
-              ),
-            ),
-            Text(
-              spell.ritual ? ', Ритуал' : '',
-              style: TextStyle(
-                color: color,
-                fontSize: 12,
-              ),
-            ),
-          ],
+        Row(children: [Text(
+          spell.school,
+          style: const TextStyle(
+            color: Colors.black87,
+            fontSize: 15,
+          ),
         ),
+        Text(
+          spell.level == 0 ? ', Заговор' : ', ${spell.level} уровень',
+          style: const TextStyle(
+            color: Colors.black87,
+            fontSize: 15,
+          ),
+        ),
+        Text(
+          spell.ritual ? ', Ритуал' : '',
+          style: const TextStyle(
+            color: Colors.black87,
+            fontSize: 15,
+          ),
+        ),],),
         const SizedBox(
           height: 4,
         ),
         Text(spell.title,
-            style: TextStyle(
-                color: color,
-                fontSize: 20,
+            style: const TextStyle(
+                color: Colors.black87,
+                fontSize: 30,
                 fontWeight: FontWeight.bold)),
       ],
     );

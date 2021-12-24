@@ -11,12 +11,12 @@ class SpellRepositoryImpl implements SpellRepository {
   SpellRepositoryImpl({required this.spellsFromFileDataSourse});
 
   @override
-  Either<Failure, AllSpellsModel> getAllSpells()  {
+  AllSpellsModel getAllSpells()  {
     try {
       final spells = spellsFromFileDataSourse.getAllSpells();
-      return Right(spells);
+      return spells;
     } on ReadFileExeption {
-      return Left(GetSpellsFailure());
+      throw Exception();
     }
   }
 }

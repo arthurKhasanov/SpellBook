@@ -416,7 +416,7 @@ class SpellsDataSourseImpl implements SpellsDataSourse {
       ];
     }
 
-    final AllSpellsModel spells = AllSpellsModel(spells: getSpells());
+    final AllSpellsModel spells = AllSpellsModel(allSpells: getSpells());
     return spells;
   }
 }

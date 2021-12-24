@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spellbook/constants/spell_carusel_title_constants.dart';
 import 'package:spellbook/feature/data/model/spell_model.dart';
 import 'package:spellbook/feature/presentation/bloc/spell_list_cubit.dart/spell_list_cubit.dart';
 import 'package:spellbook/feature/presentation/bloc/spell_list_cubit.dart/spell_list_state.dart';
 import 'package:spellbook/feature/presentation/widgets/spell_card_widget.dart';
+import 'package:spellbook/feature/presentation/widgets/spell_carusel_title.dart';
+import 'package:spellbook/feature/presentation/widgets/spell_carusel_widget.dart';
 
 class SpellList extends StatelessWidget {
   const SpellList({Key? key}) : super(key: key);
@@ -23,37 +26,34 @@ class SpellList extends StatelessWidget {
       } else if (state is SpellListLoadedState) {
         spells = state.loadedSpellList;
       }
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(12.0),
-            child: Text(
-              'Заговоры',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontFamily: 'Montserrat',
-                // fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 250,
-            child: ListView.separated(
-              padding: EdgeInsets.symmetric(horizontal: 12),
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return SpellCard(spell: spells.spells[index]);
-                },
-                separatorBuilder: (context, index) => const SizedBox(
-                      width: 8,
-                    ),
-                itemCount: spells.spells.length),
-          ),
-        ],
+      return SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+          const CaruselTitle(level: CaruselTitleConstants.cantrip),  
+          SpellCarusel(spellArray: spells.cantrips),
+          const CaruselTitle(level: CaruselTitleConstants.firstLevel),
+          SpellCarusel(spellArray: spells.firstLevel),
+          const CaruselTitle(level: CaruselTitleConstants.secondLevel),
+          SpellCarusel(spellArray: spells.secondLevel),
+          const CaruselTitle(level: CaruselTitleConstants.thirdLevel),
+          SpellCarusel(spellArray: spells.thirdLevel),
+          const CaruselTitle(level: CaruselTitleConstants.fourthLevel),
+          SpellCarusel(spellArray: spells.fourthLevel),
+          const CaruselTitle(level: CaruselTitleConstants.fifthLevel),
+          SpellCarusel(spellArray: spells.fifthLevel),
+          const CaruselTitle(level: CaruselTitleConstants.sixthLevel),
+          SpellCarusel(spellArray: spells.sixthLevel),
+          const CaruselTitle(level: CaruselTitleConstants.seventhLevel),
+          SpellCarusel(spellArray: spells.seventhLevel),
+          const CaruselTitle(level: CaruselTitleConstants.eighthLevel),
+          SpellCarusel(spellArray: spells.eighthLevel),
+          const CaruselTitle(level: CaruselTitleConstants.ninthLevel),
+          SpellCarusel(spellArray: spells.ninthLevel),
+          const SizedBox(height: 20,),
+          ],
+        ),
       );
     });
   }

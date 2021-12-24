@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:spellbook/constants/card_desc_constants.dart';
 import 'package:spellbook/feature/data/model/spell_model.dart';
 import 'package:spellbook/feature/presentation/pages/spell_detail.dart';
-import 'package:spellbook/feature/presentation/widgets/spell_desc_row.dart';
-import 'package:spellbook/feature/presentation/widgets/spell_desc_title.dart';
+import 'package:spellbook/feature/presentation/widgets/spell_card_row.dart';
+import 'package:spellbook/feature/presentation/widgets/spell_card_title.dart';
 
 class SpellCard extends StatelessWidget {
   const SpellCard({Key? key, required this.spell}) : super(key: key);
@@ -32,27 +32,27 @@ class SpellCard extends StatelessWidget {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SpellDescTitle(spell: spell, color: Colors.white,),
+                SpellCardTitle(spell: spell, color: Colors.white,),
                 Column(children: [
-                  SpellDescRow(
+                  SpellCardRow(
                       rowName: CardDescConstans.castingTime,
                       rowDesc: spell.castingTime,),
                   const SizedBox(
                     height: 4,
                   ),
-                  SpellDescRow(
+                  SpellCardRow(
                       rowName: CardDescConstans.rangeArea,
                       rowDesc: spell.rangeArea,),
                   const SizedBox(
                     height: 4,
                   ),
-                  SpellDescRow(
+                  SpellCardRow(
                       rowName: CardDescConstans.components,
                       rowDesc: spell.components,),
                   const SizedBox(
                     height: 4,
                   ),
-                  SpellDescRow(
+                  SpellCardRow(
                       rowName: CardDescConstans.duration,
                       rowDesc: spell.duration,),
                 ]),

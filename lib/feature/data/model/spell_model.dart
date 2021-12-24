@@ -2,8 +2,19 @@ import 'package:spellbook/constants/constants.dart';
 import 'package:spellbook/feature/domain/entities/spell_entity.dart';
 
 class AllSpellsModel {
-  final List<SpellModel> spells;
-  AllSpellsModel({required this.spells});
+  final List<SpellModel> allSpells;
+  List<SpellModel> cantrips = [];
+  List<SpellModel> firstLevel = [];
+  List<SpellModel> secondLevel = [];
+  List<SpellModel> thirdLevel = [];
+  List<SpellModel> fourthLevel = [];
+  List<SpellModel> fifthLevel = [];
+  List<SpellModel> sixthLevel = [];
+  List<SpellModel> seventhLevel = [];
+  List<SpellModel> eighthLevel = [];
+  List<SpellModel> ninthLevel = [];
+  
+  AllSpellsModel({required this.allSpells});
 }
 
 class SpellModel extends SpellEntity {
