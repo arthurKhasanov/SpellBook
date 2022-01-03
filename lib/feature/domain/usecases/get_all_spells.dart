@@ -1,5 +1,3 @@
-import 'package:dartz/dartz.dart';
-import 'package:spellbook/core/error/failure.dart';
 import 'package:spellbook/feature/data/model/spell_model.dart';
 import 'package:spellbook/feature/domain/repositories/spell_repository.dart';
 
@@ -10,7 +8,11 @@ class GetAllSpells {
 
   AllSpellsModel getSpells() {
     var spells = spellRepository.getAllSpells();
+    return spells;
+  }
 
+  AllSpellsModel getSortSpells() {
+    var spells = spellRepository.getAllSpells();
     for (var spell in spells.allSpells) {
       if (spell.level == 0) {
         spells.cantrips.add(spell);

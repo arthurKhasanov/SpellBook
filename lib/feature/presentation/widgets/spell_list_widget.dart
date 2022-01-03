@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spellbook/constants/spell_carusel_title_constants.dart';
 import 'package:spellbook/feature/data/model/spell_model.dart';
-import 'package:spellbook/feature/presentation/bloc/spell_list_cubit.dart/spell_list_cubit.dart';
-import 'package:spellbook/feature/presentation/bloc/spell_list_cubit.dart/spell_list_state.dart';
-import 'package:spellbook/feature/presentation/widgets/spell_card_widget.dart';
+import 'package:spellbook/feature/presentation/bloc/spell_list_cubit/spell_list_cubit.dart';
+import 'package:spellbook/feature/presentation/bloc/spell_list_cubit/spell_list_state.dart';
 import 'package:spellbook/feature/presentation/widgets/spell_carusel_title.dart';
 import 'package:spellbook/feature/presentation/widgets/spell_carusel_widget.dart';
 

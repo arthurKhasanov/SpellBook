@@ -13,12 +13,14 @@ class AllSpellsModel {
   List<SpellModel> seventhLevel = [];
   List<SpellModel> eighthLevel = [];
   List<SpellModel> ninthLevel = [];
-  
+
   AllSpellsModel({required this.allSpells});
 }
 
 class SpellModel extends SpellEntity {
-  const SpellModel({
+  bool isChecked = false;
+  SpellModel({
+    required isCheched,
     required level,
     required title,
     required school,

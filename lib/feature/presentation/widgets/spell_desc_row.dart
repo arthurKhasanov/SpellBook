@@ -16,7 +16,7 @@ class SpellDescRow extends StatelessWidget {
           text: TextSpan(
         children: <TextSpan>[
           TextSpan(
-            text: '${rowName} ',
+            text: '$rowName ',
             style: const TextStyle(
                 color: Colors.black87,
                 fontFamily: 'Montserrat',

@@ -7,7 +7,7 @@ class CaruselTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 50, top: 8, bottom: 8),
+      padding: const EdgeInsets.only(left: 50, top: 8, bottom: 8),
       child: Text(
         level,
         style: const TextStyle(

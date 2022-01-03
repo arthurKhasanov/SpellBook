@@ -3,11 +3,10 @@ import 'package:spellbook/constants/card_desc_constants.dart';
 import 'package:spellbook/feature/data/model/spell_model.dart';
 import 'package:spellbook/feature/presentation/widgets/spell_desc_row.dart';
 import 'package:spellbook/feature/presentation/widgets/spell_desc_title.dart';
-import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
 class SpellDescSheet extends StatelessWidget {
   final SpellModel spell;
-  SpellDescSheet({Key? key, required this.spell}) : super(key: key);
+  const SpellDescSheet({Key? key, required this.spell}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
