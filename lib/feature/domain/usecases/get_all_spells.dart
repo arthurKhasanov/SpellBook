@@ -11,7 +11,7 @@ class GetAllSpells {
     return spells;
   }
 
-  AllSpellsModel getSortSpells() {
+  AllSpellsModel getSortedSpells() {
     var spells = spellRepository.getAllSpells();
     for (var spell in spells.allSpells) {
       if (spell.level == 0) {

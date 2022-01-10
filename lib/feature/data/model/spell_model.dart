@@ -2,7 +2,7 @@ import 'package:spellbook/constants/constants.dart';
 import 'package:spellbook/feature/domain/entities/spell_entity.dart';
 
 class AllSpellsModel {
-  final List<SpellModel> allSpells;
+  List<SpellModel> allSpells = [];
   List<SpellModel> cantrips = [];
   List<SpellModel> firstLevel = [];
   List<SpellModel> secondLevel = [];

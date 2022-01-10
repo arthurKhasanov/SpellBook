@@ -12,10 +12,9 @@ class SpellCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => SpellDetailScreen(spell: spell)));
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return SpellDetailScreen(spell: spell);
+        }));
       },
       child: Container(
         width: 230,
@@ -32,29 +31,36 @@ class SpellCard extends StatelessWidget {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SpellCardTitle(spell: spell, color: Colors.white,),
+                SpellCardTitle(
+                  spell: spell,
+                  color: Colors.white,
+                ),
                 Column(children: [
                   SpellCardRow(
-                      rowName: CardDescConstans.castingTime,
-                      rowDesc: spell.castingTime,),
+                    rowName: CardDescConstans.castingTime,
+                    rowDesc: spell.castingTime,
+                  ),
                   const SizedBox(
                     height: 4,
                   ),
                   SpellCardRow(
-                      rowName: CardDescConstans.rangeArea,
-                      rowDesc: spell.rangeArea,),
+                    rowName: CardDescConstans.rangeArea,
+                    rowDesc: spell.rangeArea,
+                  ),
                   const SizedBox(
                     height: 4,
                   ),
                   SpellCardRow(
-                      rowName: CardDescConstans.components,
-                      rowDesc: spell.components,),
+                    rowName: CardDescConstans.components,
+                    rowDesc: spell.components,
+                  ),
                   const SizedBox(
                     height: 4,
                   ),
                   SpellCardRow(
-                      rowName: CardDescConstans.duration,
-                      rowDesc: spell.duration,),
+                    rowName: CardDescConstans.duration,
+                    rowDesc: spell.duration,
+                  ),
                 ]),
               ]),
         ),

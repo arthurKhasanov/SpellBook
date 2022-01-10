@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 import 'package:spellbook/feature/presentation/bloc/spell_list_cubit/spell_list_cubit.dart';
+import 'package:spellbook/feature/presentation/widgets/custom_search_delegate.dart';
 import 'package:spellbook/feature/presentation/widgets/spell_list_widget.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
-  var isCart = false;
+  const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final SpellListCubit spellCubit = context.read<SpellListCubit>();
@@ -13,25 +13,36 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Заклинания', style: TextStyle(color: Colors.black)),
         centerTitle: true,
+        leading: IconButton(
+            onPressed: () {
+              showSearch(context: context, delegate: CustomSearchDelegate());
+            },
+            icon: const Icon(
+              Icons.search,
+              color: Colors.black87,
+              size: 25,
+            )),
         actions: [
           IconButton(
               onPressed: () {
-                if (!isCart) {
-                  isCart = !isCart;
-                  spellCubit.getCartSpells();
+                if (!spellCubit.isCart) {
+                  spellCubit
+                    ..changeListStatus()
+                    ..getCartSpells();
                 } else {
-                  isCart = !isCart;
-                  spellCubit.loadSpells();
+                  spellCubit
+                    ..changeListStatus()
+                    ..loadSpells();
                 }
               },
               icon: const Icon(
-                Icons.check_rounded,
+                Icons.check_box_outlined,
                 color: Colors.black87,
-                size: 12,
+                size: 25,
               )),
         ],
       ),
-      body: const SpellList(),
+      body: SpellList(),
     );
   }
 }

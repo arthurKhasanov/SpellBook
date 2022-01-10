@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spellbook/feature/data/model/spell_model.dart';
-import 'package:spellbook/feature/presentation/bloc/spell_desc_cubit/spell_desc_cubit.dart';
-import 'package:spellbook/feature/presentation/bloc/spell_desc_cubit/spell_desc_state.dart';
+import 'package:spellbook/feature/presentation/bloc/spell_list_cubit/spell_list_cubit.dart';
+import 'package:spellbook/feature/presentation/bloc/spell_list_cubit/spell_list_state.dart';
 import 'package:spellbook/feature/presentation/widgets/spell_desc_sheet.dart';
 
 class SpellDetailScreen extends StatelessWidget {
@@ -10,11 +10,10 @@ class SpellDetailScreen extends StatelessWidget {
   const SpellDetailScreen({Key? key, required this.spell}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-
-    final SpellDescCubit cubit = context.read<SpellDescCubit>();
+    final SpellListCubit cubit = context.read<SpellListCubit>();
     final size = MediaQuery.of(context).size;
 
-    return BlocBuilder<SpellDescCubit, SpellDescState>(
+    return BlocBuilder<SpellListCubit, SpellListState>(
         builder: (context, state) {
       return Scaffold(
         body: Stack(
@@ -41,7 +40,7 @@ class SpellDetailScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    onPressed: () => Navigator.pop(context, true),
+                    onPressed: () => Navigator.pop(context),
                     icon: const Icon(
                       Icons.arrow_back_ios,
                       color: Colors.white,
@@ -70,7 +69,7 @@ class SpellDetailScreen extends StatelessWidget {
     });
   }
 
-  Widget iconButtonFromState(SpellDescState state, SpellDescCubit cubit) {
+  Widget iconButtonFromState(SpellListState state, SpellListCubit cubit) {
     if (state is SpellAddedState) {
       return IconButton(
           onPressed: () {

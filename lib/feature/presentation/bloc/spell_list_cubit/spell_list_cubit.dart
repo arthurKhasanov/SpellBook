@@ -9,22 +9,20 @@ const readFileFailure = 'READ_FILE_FAILURE';
 class SpellListCubit extends Cubit<SpellListState> {
   final GetAllSpells getAllSpells;
   final GetCartSpells cartSpells;
+  bool isCart = false;
 
   SpellListCubit({required this.getAllSpells, required this.cartSpells})
       : super(SpellListEmptyState());
 
   Future<void> loadSpells() async {
-    final failureOrSpells = getAllSpells.getSortSpells();
-
+    final failureOrSpells = getAllSpells.getSortedSpells();
     AllSpellsModel? actualSpells;
 
     if (actualSpells != null) {
       emit(SpellListLoadingState());
     }
-
     if (failureOrSpells != null) {
       actualSpells = failureOrSpells;
-      print(actualSpells.allSpells.length);
       emit(SpellListLoadedState(loadedSpellList: actualSpells));
     } else {
       emit(const SpellListErrorState(message: 'Spell == null'));
@@ -47,7 +45,39 @@ class SpellListCubit extends Cubit<SpellListState> {
     }
   }
 
-  void addSpellToCart(SpellModel spell) {
+  void addOrDeleteSpellFromCart(SpellModel spell) {
+    if (isCart) {
+      if (cartSpells.isContains(spell)) {
+        deleteSpell(spell);
+        getCartSpells();
+      } else {
+        addSpell(spell);
+        getCartSpells();
+      }
+    } else {
+      if (cartSpells.isContains(spell)) {
+        deleteSpell(spell);
+        loadSpells();
+      } else {
+        addSpell(spell);
+        loadSpells();
+      }
+    }
+  }
+
+  void deleteSpell(SpellModel spell) {
+    spell.isChecked = !spell.isChecked;
+    cartSpells.deleteSpellFromCart(spell);
+    emit(SpellNotAddedState());
+  }
+
+  void addSpell(SpellModel spell) {
+    spell.isChecked = !spell.isChecked;
     cartSpells.addSpell(spell);
+    emit(SpellAddedState());
+  }
+
+  void changeListStatus() {
+    isCart = !isCart;
   }
 }

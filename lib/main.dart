@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spellbook/feature/presentation/bloc/spell_desc_cubit/spell_desc_cubit.dart';
+import 'package:spellbook/feature/presentation/bloc/search_spell_bloc/search_spell_bloc.dart';
 import 'package:spellbook/feature/presentation/bloc/spell_list_cubit/spell_list_cubit.dart';
 import 'package:spellbook/locator_service.dart' as di;
-
 import 'feature/presentation/pages/spell_screen.dart';
 import 'locator_service.dart';
 
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider<SpellListCubit>(
               create: (context) => sl<SpellListCubit>()..loadSpells()),
-          BlocProvider<SpellDescCubit>(create: (context) => sl<SpellDescCubit>()),
+          BlocProvider<SearchSpellBloc>(create: (context) => sl<SearchSpellBloc>())
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -32,7 +31,8 @@ class MyApp extends StatelessWidget {
               appBarTheme: const AppBarTheme(
                 backgroundColor: Colors.white,
               )),
-          home: SafeArea(child: HomePage()),
+          
+          home: HomePage(),
         ));
   }
 }

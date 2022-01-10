@@ -39,3 +39,22 @@ class SpellListErrorState extends SpellListState {
   @override
   List<Object?> get props => [];
 }
+
+class SpellDescInitialState extends SpellListState {
+  @override
+  List<Object?> get props => [];
+}
+
+// NOTE: Заклинание добавлено
+class SpellAddedState extends SpellListState {
+  bool isChecked = true;
+  @override
+  List<Object?> get props => [isChecked];
+}
+
+// NOTE: Заклинание не добавлено
+class SpellNotAddedState extends SpellListState {
+  bool isChecked = false;
+  @override
+  List<Object?> get props => [isChecked];
+}
