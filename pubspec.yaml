@@ -63,14 +63,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/Воплощение.jpg
-    - assets/images/Вызов.jpg
-    - assets/images/Иллюзия.jpg
-    - assets/images/Некромантия.jpg
-    - assets/images/Ограждение.jpg
-    - assets/images/Очарование.jpg
-    - assets/images/Преобразование.jpg
-    - assets/images/Прорицание.jpg
+    - assets/images/
+    - assets/images/logo/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
