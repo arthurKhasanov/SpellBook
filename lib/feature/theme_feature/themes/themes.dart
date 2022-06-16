@@ -8,6 +8,24 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.lightBg,
     ),
+    colorScheme: const ColorScheme(
+      brightness: Brightness.light,
+      primary: Color.fromRGBO(215, 57, 101, 1),
+      onPrimary: Color.fromARGB(221, 25, 25, 25),
+      secondary: Color.fromRGBO(215, 57, 101, 1),
+      onSecondary: Color.fromARGB(255, 255, 255, 255),
+      error: Color.fromARGB(255, 240, 37, 23),
+      onError: Color.fromARGB(255, 255, 255, 255),
+      background: Color.fromARGB(255, 255, 255, 255),
+      onBackground: Color.fromARGB(221, 25, 25, 25),
+      surface: Color.fromARGB(255, 255, 255, 255),
+      onSurface: Color.fromRGBO(215, 57, 101, 1),
+      shadow: Color.fromARGB(221, 25, 25, 25),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      // border: InputBorder(borderSide: )
+    ),
+
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -16,6 +34,20 @@ class AppTheme {
     backgroundColor: AppColors.inputBgDark,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.inputBgDark,
+    ),
+    colorScheme: const ColorScheme(
+      brightness: Brightness.dark,
+      primary: Color.fromRGBO(215, 57, 101, 1),
+      onPrimary: Color.fromARGB(255, 255, 255, 255),
+      secondary: Color.fromRGBO(215, 57, 101, 1),
+      onSecondary: Color.fromARGB(255, 34, 34, 34),
+      error: Color.fromARGB(255, 240, 37, 23),
+      onError: Color.fromARGB(255, 34, 34, 34),
+      background: Color.fromARGB(255, 48, 48, 48),
+      onBackground: Color.fromARGB(255, 255, 255, 255),
+      surface: Color.fromARGB(255, 255, 255, 255),
+      onSurface: Color.fromARGB(255, 255, 255, 255),
+      shadow: Color.fromARGB(221, 247, 247, 247),
     ),
   );
 }
